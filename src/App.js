@@ -31,7 +31,10 @@ class BooksApp extends React.Component {
       }))
     } else {
       this.setState(state => ({
-        books: state.books.push(book)
+        books: state.books.concat([book]).map(b => {
+          if(b.id === book.id) b.shelf = shelf
+          return b
+        })
       }))
     }
     

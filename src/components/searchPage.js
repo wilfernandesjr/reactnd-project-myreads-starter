@@ -27,7 +27,10 @@ class SearchPage extends Component {
           const finded = this.props.books.find((item) => book.id === item.id)
           if (finded) {
             book.shelf = finded.shelf
+            return book
           }
+
+          book.shelf = 'none'
           return book
         })
 
